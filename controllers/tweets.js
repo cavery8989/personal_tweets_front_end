@@ -1,4 +1,7 @@
-const Twit = require('twit');
+const Twitter = require('twitter');
+const config = require('../config');
+
+var client = new Twitter(config.twitterConfig);
 
 module.exports = {
   getTweets : getTweets
@@ -6,6 +9,20 @@ module.exports = {
 };
 
 function getTweets (username, callback) {
-  var data = 'getting tweets for ' + username;
-  callback(null, data);
+  var params = {
+    screen_name: username
+  };
+
+  client.get('statuses/user_timeline', params, function (err,tweet,  res) {
+
+    if(err) {
+      return console.log(err);
+    }
+
+    callback(null, tweet[0]);
+    
+  });
+
+
+
 }
