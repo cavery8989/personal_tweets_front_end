@@ -3,7 +3,7 @@
 //turn on loading
 //turn off loading;
 
-const types = require('./types')
+const types = require('./types');
 
 const actions = {};
 
@@ -44,3 +44,5 @@ actions.removeProfileTwo = function () {
   obj.type = types.REMOVE_PROFILE_TWO;
   return obj;
 };
+
+module.exports = actions;
