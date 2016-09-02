@@ -9,6 +9,10 @@
 
 }
 
+.title {
+    align-content: center;
+}
+
 .main-page{
     border-radius: 4%;
     height:80vh;
@@ -26,9 +30,14 @@
 }
 
 .avatarFrame {
-    height: 100px;
-    width: 100px;
-    display: flex;
+    height: 25%;
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.avatar {
+    margin-bottom: 25%;
 }
 
 

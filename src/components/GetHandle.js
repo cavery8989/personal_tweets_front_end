@@ -15,7 +15,7 @@ const GetHandle = React.createClass({
       });
     return (
       <div className="GetHandle">
-        <h1> Title </h1>
+        <h1 className="title"> Title </h1>
         <ProfilePicture/>
 
         <h1> Enter your Twitter handle for a personality analysis of your tweets.</h1>

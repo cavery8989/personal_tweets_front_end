@@ -21453,7 +21453,7 @@
 	      { className: 'GetHandle' },
 	      React.createElement(
 	        'h1',
-	        null,
+	        { className: 'title' },
 	        ' Title '
 	      ),
 	      React.createElement(ProfilePicture, null),
