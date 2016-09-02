@@ -21436,6 +21436,7 @@
 
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(173);
+	var ProfilePicture = __webpack_require__(195);
 
 	var GetHandle = React.createClass({
 	  displayName: 'GetHandle',
@@ -21450,6 +21451,12 @@
 	    return React.createElement(
 	      'div',
 	      { className: 'GetHandle' },
+	      React.createElement(
+	        'h1',
+	        null,
+	        ' Title '
+	      ),
+	      React.createElement(ProfilePicture, null),
 	      React.createElement(
 	        'h1',
 	        null,
@@ -22815,6 +22822,89 @@
 	  };
 	};
 
+
+/***/ },
+/* 195 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(1);
+	//const x = require('../../public/img/avatar-1299805_1280.png')
+
+	var ProfilePicture = React.createClass({
+	  displayName: "ProfilePicture",
+
+	  render: function render() {
+	    return React.createElement(
+	      "div",
+	      { className: "avatar" },
+	      React.createElement(
+	        "div",
+	        { className: "avatarFrame" },
+	        React.createElement("img", { src: "img/avatar-1299805_1280.png" })
+	      )
+	    );
+	  }
+
+	});
+
+	module.exports = ProfilePicture;
+
+	/*var Hello = React.createClass({
+	  render: function() {
+	    return <div><img src={'http://placehold.it/400x20&text=slide1'} className="img-responsive"/><span>Hello {this.props.name}</span></div>;
+	  }
+	});
+
+	React.renderComponent(<Hello name="World" />, document.body);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	const React = require('react');
+	const axios = require('axios');
+
+	const GetHandle = React.createClass({
+
+	  handleSubmit : function (e) {
+
+	  },
+
+	  render: function () {
+	    axios.get('http://localhost:4000/api/dummy')
+	      .then(function (data){
+	        console.log('data!!!',data)
+	      });
+	    return (
+	      <div className="GetHandle">
+
+
+	        <h1> Enter your Twitter handle for a personality analysis of your tweets.</h1>
+
+	        <h1>Progress bar</h1>
+
+
+	        <form onSubmit={this.handleSubmit}>
+	          <input type="text"/>
+	          <input type='submit'/>
+	        </form>
+	      </div>
+	    )
+	  }
+	});
+
+	module.exports = GetHandle;*/
 
 /***/ }
 /******/ ]);

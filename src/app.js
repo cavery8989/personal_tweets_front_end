@@ -18,6 +18,7 @@ let App = React.createClass({
     render: function () {
       var comp = this.setComponentToRender();
       return (
+
         <div className="main-page">
 
           {comp}

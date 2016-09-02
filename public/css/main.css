@@ -22,13 +22,14 @@
 
 .GetHandle {
     width: 90%;
-
     margin-top: 5%;
-
-
-
 }
 
+.avatarFrame {
+    height: 100px;
+    width: 100px;
+    display: flex;
+}
 
 
 
