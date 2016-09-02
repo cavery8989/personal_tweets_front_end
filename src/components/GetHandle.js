@@ -14,6 +14,8 @@ const GetHandle = React.createClass({
       });
     return (
       <div className="GetHandle">
+
+
         <h1> Enter your Twitter handle for a personality analysis of your tweets.</h1>
 
         <h1>Progress bar</h1>
