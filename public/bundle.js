@@ -21443,29 +21443,100 @@
 
 
 	  handleSubmit: function handleSubmit(e) {},
+	  test: function test() {
+
+	    var loaded = this.state.test;
+
+	    var id = setInterval(frame.bind(this), 10);
+
+	    function frame() {
+	      if (this.state.test >= 100) {
+	        clearInterval(id);
+	      } else {
+	        loaded++;
+	        this.setState({
+	          test: loaded
+	        });
+	      }
+	    };
+	  },
+
+	  getInitialState: function getInitialState() {
+	    return {
+	      test: 1
+	    };
+	  },
 
 	  render: function render() {
 	    axios.get('http://localhost:4000/api/dummy').then(function (data) {
 	      console.log('data!!!', data);
 	    });
+	    //{transition-timing-function: linear;}
+
 	    return React.createElement(
 	      'div',
 	      { className: 'GetHandle' },
 	      React.createElement(
 	        'h1',
 	        { className: 'title' },
-	        ' Title '
+	        ' Personality Test '
 	      ),
 	      React.createElement(ProfilePicture, null),
 	      React.createElement(
 	        'h1',
 	        null,
-	        ' Enter your Twitter handle for a personality analysis of your tweets.'
+	        ' Openness'
+	      ),
+	      React.createElement(
+	        'progress',
+	        { 'class': 'progress is-primary', value: this.state.test.toString(), max: '100' },
+	        '30%'
+	      ),
+	      React.createElement('button', { onClick: this.test }),
+	      React.createElement(
+	        'h1',
+	        null,
+	        ' Conscientiousness'
+	      ),
+	      React.createElement(
+	        'progress',
+	        { 'class': 'progress is-info', value: '45', max: '100' },
+	        '45%'
 	      ),
 	      React.createElement(
 	        'h1',
 	        null,
-	        'Progress bar'
+	        ' Extraversion'
+	      ),
+	      React.createElement(
+	        'progress',
+	        { 'class': 'progress is-success', value: '60', max: '100' },
+	        '60%'
+	      ),
+	      React.createElement(
+	        'h1',
+	        null,
+	        ' Agreeableness'
+	      ),
+	      React.createElement(
+	        'progress',
+	        { 'class': 'progress is-warning', value: '75', max: '100' },
+	        '75%'
+	      ),
+	      React.createElement(
+	        'h1',
+	        null,
+	        ' Emotional Range'
+	      ),
+	      React.createElement(
+	        'progress',
+	        { 'class': 'progress is-danger', value: '90', max: '100' },
+	        '90%'
+	      ),
+	      React.createElement(
+	        'h1',
+	        null,
+	        ' Enter Twitter handle for a personality analysis of your tweets.'
 	      ),
 	      React.createElement(
 	        'form',

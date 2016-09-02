@@ -10,12 +10,15 @@
 }
 
 .title {
-    align-content: center;
+    text-align: center;
 }
+
+
 
 .main-page{
     border-radius: 4%;
-    height:80vh;
+    min-height: 700px;
+    height:80%;
     width:45%;
     background: ghostwhite;
     display: flex;
@@ -40,6 +43,9 @@
     margin-bottom: 25%;
 }
 
+.progress{
+    transition: ;
+}
 
 
 
