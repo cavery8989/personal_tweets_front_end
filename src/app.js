@@ -3,11 +3,18 @@ const ReactDOM = require('react-dom');
 const GetHandle = require('./components/GetHandle');
 const Provider = require('react-redux').Provider;
 const redux = require('redux');
+const thunk = require('redux-thunk').default;
 const reducer = require('../redux/reducer/reducer');
 
+const applyMiddleWare = redux.applyMiddleware;
 
-var store = redux.createStore(reducer);
-console.log(store);
+
+
+
+var store = redux.createStore(
+  reducer,
+  applyMiddleWare(thunk));
+
 
 let App = React.createClass({
     getInitialState: function () {
@@ -25,16 +32,12 @@ let App = React.createClass({
     render: function () {
       var comp = this.setComponentToRender();
       return (
-
         <div className="main-page">
-
           {comp}
-
         </div>
       )
     }
-  })
-  ;
+  });
 
 ReactDOM.render(
   <Provider store={store}>

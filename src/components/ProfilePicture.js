@@ -2,11 +2,13 @@ const React = require('react');
 //const x = require('../../public/img/avatar-1299805_1280.png')
 
 var ProfilePicture = React.createClass({
+
   render: function () {
+    var url = this.props.url ?  this.props.url : '/img/avatar-1299805_1280.png';
     return(
       <div className="avatar">
      <div className="avatarFrame">
-       <img src='img/avatar-1299805_1280.png'/>
+       <img src={url}/>
      </div>
     </div>
 
