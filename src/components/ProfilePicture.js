@@ -4,8 +4,7 @@ const React = require('react');
 var ProfilePicture = React.createClass({
   render: function () {
     return(
-
-    <div className="avatar">
+      <div className="avatar">
      <div className="avatarFrame">
        <img src='img/avatar-1299805_1280.png'/>
      </div>
