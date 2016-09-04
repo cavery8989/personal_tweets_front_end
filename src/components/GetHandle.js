@@ -7,12 +7,29 @@ const actions = require('../../redux/actions/actions');
 
 const GetHandle = React.createClass({
 
+  getInitialState: function () {
+    return {
+      userHandle: ""
+    }
+  },
+
+  handleTextInput: function (e) {
+    this.setState({
+      userHandle: e.target.value
+    })
+  },
+
   handleSubmit: function (e) {
     e.preventDefault();
-    console.log('about to send req')
-    this.props.sendReqThenSet('chris')
+    var userHandle = this.state.userHandle;
+    if( userHandle !== ''){
+      this.props.sendReqThenSet(userHandle);
+    }
+
   },
   render: function () {
+
+
     return (
 
       <div className="GetHandle">
@@ -22,7 +39,7 @@ const GetHandle = React.createClass({
 
         <h1 className="SubmitInstructions"> Enter Twitter handle for personality analysis.</h1>
         <form onSubmit={this.handleSubmit}>
-          <input type="text"/>
+          <input type="text" onChange={this.handleTextInput}/>
           <input type='submit'/>
         </form>
       </div>

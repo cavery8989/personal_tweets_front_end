@@ -8,7 +8,7 @@ var ProfilePicture = React.createClass({
     return(
       <div className="avatar">
      <div className="avatarFrame">
-       <img src={url}/>
+       <img className="user-image" src={url}/>
      </div>
     </div>
 

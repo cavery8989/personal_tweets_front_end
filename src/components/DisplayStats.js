@@ -7,29 +7,38 @@ const connect = require('react-redux').connect;
 const DisplayStats = React.createClass({
   getInitialState: function () {
     return{
-      openness: 0,
-      conscientiousness:0,
-      extraversion: 0,
-      agreeableness: 0,
-      emotionalRange: 0
+      Openness: 0,
+      Conscientiousness:0,
+      Extraversion: 0,
+      Agreeableness: 0,
+      EmotionalRange: 0
 
     }
   },
-  test: function () {
+    animateProgBar: function (characteristic, percentage) {
 
-    var loaded = this.state.test;
+    var loaded = this.state[characteristic];
+      console.log('loaded', loaded);
 
-    var id = setInterval(frame.bind(this), 10);
+    var id = setInterval(frame.bind(this), 30);
 
     function frame() {
-      if (this.state.test >= 100) {
+      if (loaded >= percentage) {
         clearInterval(id)
       } else {
         loaded++;
         this.setState({
-          test: loaded
+          [characteristic]: loaded
         })
       }
+    }
+  },
+  componentWillReceiveProps: function () {
+    if(this.props.profile){
+      console.log('have profile');
+      var profile = this.props.profile.profile[0];
+      console.log(profile);
+      this.animateProgBar(profile.name, profile.percentage)
     }
   },
 
@@ -37,15 +46,15 @@ const DisplayStats = React.createClass({
     return (
       <div className="stats-bars">
         <h1> Openness</h1>
-        <progress className="progress is-primary" value={this.state.openness.toString()} max="100">30%</progress>
+        <progress className="progress is-primary" value={this.state.Openness.toString()} max="100">30%</progress>
         <h1> Conscientiousness</h1>
-        <progress className="progress is-info" value={this.state.conscientiousness.toString()} max="100">45%</progress>
+        <progress className="progress is-info" value={this.state.Conscientiousness.toString()} max="100">45%</progress>
         <h1> Extraversion</h1>
-        <progress className="progress is-success" value={this.state.extraversion.toString()} max="100">60%</progress>
+        <progress className="progress is-success" value={this.state.Extraversion.toString()} max="100">60%</progress>
         <h1> Agreeableness</h1>
-        <progress className="progress is-warning" value={this.state.agreeableness.toString()} max="100">75%</progress>
+        <progress className="progress is-warning" value={this.state.Agreeableness.toString()} max="100">75%</progress>
         <h1> Emotional Range</h1>
-        <progress className="progress is-danger" value={this.state.emotionalRange.toString()} max="100">90%</progress>
+        <progress className="progress is-danger" value={this.state.EmotionalRange.toString()} max="100">90%</progress>
       </div>
     )
   }
