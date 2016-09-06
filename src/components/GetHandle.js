@@ -1,35 +1,26 @@
 const React = require('react');
-const axios = require('axios');
+const ReactDOM = require('react-dom');
+
 const connect = require('react-redux').connect;
 const ProfilePicture = require('./ProfilePicture');
 const DisplayStats = require('./DisplayStats');
 const actions = require('../../redux/actions/actions');
+const funcs = require('../../redux/actions/funcs');
 
 const GetHandle = React.createClass({
 
-  getInitialState: function () {
-    return {
-      userHandle: ""
-    }
-  },
-
-  handleTextInput: function (e) {
-    this.setState({
-      userHandle: e.target.value
-    })
-  },
 
   handleSubmit: function (e) {
     e.preventDefault();
-    var userHandle = this.state.userHandle;
-    if( userHandle !== ''){
+    console.log(this.refs.userHandle.value);
+   var userHandle = ReactDOM.findDOMNode(this.refs.userHandle).value;
+   if( userHandle !== ''){
       this.props.sendReqThenSet(userHandle);
     }
 
+
   },
   render: function () {
-
-
     return (
 
       <div className="GetHandle">
@@ -39,7 +30,7 @@ const GetHandle = React.createClass({
 
         <h1 className="SubmitInstructions"> Enter Twitter handle for personality analysis.</h1>
         <form onSubmit={this.handleSubmit}>
-          <input type="text" onChange={this.handleTextInput}/>
+          <input type="text" ref="userHandle"/>
           <input type='submit'/>
         </form>
       </div>
@@ -52,25 +43,10 @@ function mapStatetoProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-
-  function requestThenSetProfile(handle) {
-
-    return function (dispatch) {
-      console.log(dispatch);
-      dispatch(actions.loadingOn());
-      axios.get('http://localhost:4000/api/personify/' + handle)
-        .then(function (response) {
-          dispatch(actions.setProfileOne(response.data));
-          dispatch(actions.loadingOff());
-        })
-    }
-  }
-
   return {
-    sendReqThenSet: function (name) {
-      dispatch(requestThenSetProfile(name))
+    sendReqThenSet: function (userHandle) {
+      dispatch(funcs.reqAndSetProfile(userHandle))
     }
-
   }
 }
 
