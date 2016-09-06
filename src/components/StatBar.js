@@ -7,7 +7,7 @@ const StatBar = React.createClass({
     var styles = {
       width: width,
       backgroundColor: 'blue',
-      transition: "width 200ms",
+      transition: "width 500ms",
       height: this.props.height || 12,
 
     };
