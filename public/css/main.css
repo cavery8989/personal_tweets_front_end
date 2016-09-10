@@ -52,26 +52,10 @@
     margin-bottom:4%;
 }
 
-
-.stat-bar-container {
-    width: 100%;
-    background: #d3d6db;
-    border-radius: 15px 15px 15px 15px;
-    -moz-border-radius: 15px 15px 15px 15px;
-    -webkit-border-radius: 15px 15px 15px 15px;
-    border: 0px solid #000000;
-
+.stat-bar{
+    margin-bottom: 4%;
 }
-.stat-bar {
 
-    backgroundColor: 'blue';
-    transition: width 200ms;
-    height:12px;
-    border-radius: 15px 15px 15px 15px;
-    -moz-border-radius: 15px 15px 15px 15px;
-    -webkit-border-radius: 15px 15px 15px 15px;
-    border: 0px solid #000000;
 
-}
 
 

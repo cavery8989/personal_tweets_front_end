@@ -35,13 +35,27 @@ const DisplayStats = React.createClass({
     }
   },
 
+
   render: function () {
 
     var openess = this.props.profile? this.props.profile.profile[0].percentage : 0;
+    var Conscientiousness = this.props.profile? this.props.profile.profile[1].percentage : 0;
+    var Extraversion = this.props.profile? this.props.profile.profile[2].percentage : 0;
+    var Agreeableness = this.props.profile? this.props.profile.profile[3].percentage : 0;
+    var EmotionalRange = this.props.profile? this.props.profile.profile[4].percentage : 0;
+
     return (
       <div className="stats-bars" >
         <h1>Openness</h1>
-        <StatsBar value={openess}/>
+        <StatsBar className="stat-bar" value={openess} colour={'blue'}/>
+        <h1>Conscientiousness</h1>
+        <StatsBar value={Conscientiousness} colour={'green'}/>
+        <h1>Extraversion</h1>
+        <StatsBar value={Extraversion} colour={'violet'}/>
+        <h1>Agreeableness</h1>
+        <StatsBar value={Agreeableness} colour={'pink'}/>
+        <h1>EmotionalRange</h1>
+        <StatsBar value={EmotionalRange} colour={'orange'}/>
 
       </div>
     )
